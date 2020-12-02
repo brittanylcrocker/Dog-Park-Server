@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 5000;
 
-let posts = [{text: "Awesome Park"}]
+let posts = [{text: "Awesome Park", url: "https://maps.randwick.nsw.gov.au/public/images/facilities/Baker-Park-768x250.jpg"}]
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -18,9 +18,7 @@ app.get('/api/hello', (req, res) => {
 
 app.post('/api/hello', (req, res) => {
   console.log("post content: ", req.body);
-  const newPost = {
-    text: req.body
-  }
+  const newPost = req.body
   res.send(
     newPost
   );
